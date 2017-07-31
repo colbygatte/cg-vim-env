@@ -7,6 +7,8 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 "---------------------------------
 "Plugin 'swekaj/php-foldexpr.vim'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'majutsushi/tagbar'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'junegunn/fzf'
@@ -14,7 +16,6 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'keith/swift.vim'
 Plugin 'posva/vim-vue'
 Plugin 'vim-scripts/indentpython.vim'
-Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-vinegar'
 Plugin 'scrooloose/nerdtree'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -34,7 +35,6 @@ Plugin 'chrisbra/csv.vim'
 "---------------------------------
 call vundle#end()   
 
-so ~/.vim/bundle/taglist_46/plugin/taglist.vim
 "}}}
 
 " General Settings ------------------{{{
@@ -47,6 +47,10 @@ let mapleader = ','
 set nonumber
 set noshowmode
 set nowrap
+
+" Makes italic work
+let &t_ZH="\e[3m"
+let &t_ZR="\e[23m"
 
 " Tabs
 set shiftwidth=4 expandtab softtabstop=4
@@ -72,8 +76,14 @@ noremap <right> <nop>
 noremap <up> <nop>
 noremap <down> <nop>
 
+" CtrlP
+let g:ctrlp_buftag_types = { 'swift': '--language-force=swift' }
+
 " Syntastic
-let g:syntastic_quiet_messages = { "type": "style" }
+let g:syntastic_quiet_messages = {"type": "style"}
+
+" FZF
+let g:fzf_layout = { 'down': '~40%' }
 
 "}}}
 
@@ -91,7 +101,7 @@ set foldnestmax=2
 " Search ----------------------{{{
 
 set hlsearch
-hi Search ctermbg=243
+hi Search ctermbg=249
 set incsearch
 
 "}}}
@@ -102,30 +112,18 @@ set incsearch
 nnoremap <Localleader>ts :put =strftime('%c')<cr>
 
 " }}}
-" General mappings-----------------------{{{
-" Delete current buffer 
-nnoremap qqq :bd<cr>
 
-" Quit
-nnoremap quit :wq<cr>
+" General mappings-----------------------{{{
 
 " Write
 nnoremap rite :w<cr>
-
-" Insert mode write
-" Using 'x' because it is a less common character, and this is in normal mode
-inoremap xrite <esc>:w<cr>
-
-" Show Relative Numbers
-nnoremap <Leader>reln :set relativenumber<cr>
-nnoremap <Leader>relnx :set norelativenumber<cr>
 
 " Move to beginning of line & insert
 " ib = insert beginning
 nnoremap <Leader>ib ^i
 
 " Emmet
-inoremap xe <esc>:Emmet<space>
+noremap xe <esc>:Emmet<space>
 
 " }}}
 
@@ -158,13 +156,17 @@ nmap <silent><Localleader>opn :sp .notes<cr>:res 11<cr>:set syntax=markdown<cr>
 nmap <Leader><space> :nohlsearch<cr>
 
 " Directory tree
-nmap <silent><Leader>1 :NERDTreeToggle<cr>
-nmap <silent><Leader>ntf :NERDTreeFind<cr>
+nnoremap <silent><Leader>1 :NERDTreeToggle<cr>
+nnoremap <silent><Leader>ntf :NERDTreeFind<cr>
 
-" Override CtrlP
+" Tagbar
+nnoremap <silent><Leader>2 :TagbarToggle<cr>
+
+" Override CtrlP, use FZF instead
+let g:ctrlp_map = ''
 nnoremap <c-P> :FZF<cr>
 
-" Search files
+" Search file
 nmap <c-E> :CtrlPBufTag<cr>
 
 " Recent files
@@ -183,23 +185,20 @@ noremap <silent><Leader>w :tabn<cr>
 " Vertical Resize
 noremap <Leader>vr :vertical res<space> 
 
-" Source Me
-noremap <Leader><Leader><Leader> :so %<cr>
-
 "}}}
 
 " PHP Mappings---------------{{{
 
 " Move to end of parameter declaration of function, insert mode 
 " Will work with more than just PHP
-" Add To FUnction
+" :A:dd :T:o :FU:nction
 nnoremap <Leader>atfu ?function\s\+[a-zA-Z0-9_]\+([^)]*)?e<cr>:nohlsearch<cr>i
 
 
 " Plugins Settings --------------{{{
 
 " CtrlP--------------------------{{{
-let g:ctrlp_custom_ignore = 'nodemodules\DS_Store\|git'
+let g:ctrlp_custom_ignore = 'node_modules\DS_Store\|git'
 let g:ctrlp_match_window = 'top,order:ttb,min:1,max:30,results:30'
 "}}}
 
@@ -426,7 +425,3 @@ nnoremap rupy :w<cr>:exec "!clear && python " . @%<cr>
 nnoremap ruph :w<cr>:exec "!clear && php " . @%<cr>
 
 "}}}
-
-" Makes italic work
-let &t_ZH="\e[3m"
-let &t_ZR="\e[23m"

@@ -60,8 +60,8 @@ hi Ignore   ctermfg=8 guifg=#808080
 hi Identifier   ctermfg=31 guifg=#0086B3
 hi PreProc  ctermfg=247 guifg=#A0A0A0 
 hi Comment  ctermfg=246 guifg=#999988 cterm=italic
-hi Constant ctermfg=6 guifg=#177F80 
-hi String   ctermfg=161 guifg=#D81745
+hi Constant ctermfg=0 cterm=bold guifg=#177F80 
+hi String   ctermfg=161 guifg=#D81745 cterm=italic
 hi Function ctermfg=31 guifg=#990000  
 hi Statement    ctermfg=0 guifg=#000000 
 hi Type     ctermfg=60 guifg=#445588 

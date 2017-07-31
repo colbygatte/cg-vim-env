@@ -2,6 +2,19 @@
 snippet ptest
 /** @test */
 function $1() {
-	$2
+    $2
+}
+endsnippet
+
+snippet t;;
+$this->$1
+endsnippet
+
+snippet function;;
+if (! function_exists('$1')) {
+    function $1($2)
+    {
+
+    }
 }
 endsnippet
