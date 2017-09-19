@@ -101,7 +101,6 @@ set foldnestmax=2
 " Search ----------------------{{{
 
 set hlsearch
-hi Search ctermbg=249
 set incsearch
 
 "}}}
@@ -160,14 +159,11 @@ nnoremap <silent><Leader>1 :NERDTreeToggle<cr>
 nnoremap <silent><Leader>ntf :NERDTreeFind<cr>
 
 " Tagbar
-nnoremap <silent><Leader>2 :TagbarToggle<cr>
+nnoremap <c-E> :TagbarToggle<cr>
 
 " Override CtrlP, use FZF instead
 let g:ctrlp_map = ''
 nnoremap <c-P> :FZF<cr>
-
-" Search file
-nmap <c-E> :CtrlPBufTag<cr>
 
 " Recent files
 nmap <c-R> :CtrlPMRUFiles<cr>
@@ -279,9 +275,9 @@ autocmd FileType php noremap <Leader>e :call PhpExpandClass()<CR>
 "}}}
 
 " csv.vim---------------------------------{{{
-" Colors
-hi CSVColumnEven ctermbg=238 ctermfg=249
-hi CSVColumnOdd ctermbg=235 ctermfg=248
+hi CSVColumnEven ctermfg=0 ctermbg=255
+hi CSVColumnOdd ctermfg=1 ctermbg=255
+
 nnoremap <Localleader>ch :Header<cr>
 
 "-- Custom code for using csv.vim:

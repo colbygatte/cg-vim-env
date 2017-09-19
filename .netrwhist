@@ -1,9 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/colbygatte/.vim'
-let g:netrw_dirhist_2='/Users/colbygatte/.vim/UltiSnips'
-let g:netrw_dirhist_3='/Users/colbygatte/.vim'
-let g:netrw_dirhist_4='/Users/colbygatte'
-let g:netrw_dirhist_5='/Users/colbygatte/.vim'
-let g:netrw_dirhist_6='/Users/colbygatte/.vim/bundle'
-let g:netrw_dirhist_7='/Users/colbygatte/.vim/bundle/SimpylFold'
+let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_1='/Users/colbygatte/htdocs/laravel-sites/forum/resources/assets/js'
+let g:netrw_dirhist_2='/Users/colbygatte/htdocs/dd_wp/artscouncil/wp-content/themes/Arts Council SWLA'
+let g:netrw_dirhist_3='/Users/colbygatte/htdocs/dd_wp/artscouncil/wp-content/themes/Arts Council SWLA/phpFlickr'
+let g:netrw_dirhist_4='/Users/colbygatte/python_projects'
