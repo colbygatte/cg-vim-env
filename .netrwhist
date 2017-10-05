@@ -1,6 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/colbygatte/htdocs/laravel-sites/forum/resources/assets/js'
-let g:netrw_dirhist_2='/Users/colbygatte/htdocs/dd_wp/artscouncil/wp-content/themes/Arts Council SWLA'
-let g:netrw_dirhist_3='/Users/colbygatte/htdocs/dd_wp/artscouncil/wp-content/themes/Arts Council SWLA/phpFlickr'
-let g:netrw_dirhist_4='/Users/colbygatte/python_projects'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/Users/colbygatte/node_projects'
+let g:netrw_dirhist_2='/Users/colbygatte/node_projects/helloworld'
+let g:netrw_dirhist_3='/Users/colbygatte/node_projects'
+let g:netrw_dirhist_4='/Users/colbygatte/node_projects/server'
+let g:netrw_dirhist_5='/Users/colbygatte/Stine'

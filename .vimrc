@@ -32,6 +32,8 @@ Plugin 'mattn/emmet-vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'chrisbra/csv.vim'
+Plugin 'Chiel92/vim-autoformat'
+Plugin 'tpope/vim-surround'
 "---------------------------------
 call vundle#end()   
 
@@ -88,7 +90,7 @@ let g:fzf_layout = { 'down': '~40%' }
 "}}}
 
 " Visuals -----------------------{{{
-colorscheme github2
+colorscheme github 
 
 set t_CO=256
 
@@ -106,6 +108,9 @@ set incsearch
 "}}}
 
 " Mappings-------------------------------{{{
+
+nnoremap <F12> :Autoformat<cr> 
+
 " Time Mappings--------------{{{
 
 nnoremap <Localleader>ts :put =strftime('%c')<cr>
@@ -122,7 +127,7 @@ nnoremap rite :w<cr>
 nnoremap <Leader>ib ^i
 
 " Emmet
-noremap xe <esc>:Emmet<space>
+noremap ee <esc>:Emmet<space>
 
 " }}}
 
@@ -145,6 +150,9 @@ nnoremap <Leader>sss :mksession!<cr>:echo "Session overwritten & saved! Open ses
 " Easier escape from insert mode
 inoremap jk <esc>
 
+" Escape from insert & save
+inoremap jkl <esc>:w<cr>
+
 " Make it easy to edit the vimrc file. Opens in a new tab
 nmap <Leader>ev :tabedit ~/.vim/.vimrc<cr>       
 
@@ -156,7 +164,7 @@ nmap <Leader><space> :nohlsearch<cr>
 
 " Directory tree
 nnoremap <silent><Leader>1 :NERDTreeToggle<cr>
-nnoremap <silent><Leader>ntf :NERDTreeFind<cr>
+nnoremap <silent><Leader>nnf :NERDTreeFind<cr>
 
 " Tagbar
 nnoremap <c-E> :TagbarToggle<cr>
